@@ -4,7 +4,8 @@ An exercise with streams.
 
 ## To Complete This Exercise
 
-Once you've cloned this project to your local machine, read [stream_exercise.py](stream_exercise.py). Use the instructions to complete the `StreamProcessor.process` method.
+Once you've cloned this project to your local machine, read [stream_exercise.py](stream_exercise.py). 
+Use the instructions to complete the `StreamProcessor.process` method.
 
 You can try feeding arbitrary strings into your StreamProcessor using `try.py`. For example
 
@@ -19,5 +20,44 @@ To test your work, run test.py:
 ```
 python test.py
 ```
+"""
+    Write a stream processor class that does the following:
+        1. You initialize an instance with a stream of digits
+          (AKA: file-like object, instance of StringIO), and
+          store it as an instance variable.
+        
+          eg: f = io.StringIO("234761640930110349378289194")
+              my_stream_processor = MyStreamProcessor(f)
+              
+        2. You call a `process` method of my_stream_processor.
+        
+          This method:
+          
+            1. Reads two digits at a time from the beginning of the stream
+            2. Converts the two digits into a number, and adds that number
+               to a running total.
+            3. Once this number reaches 200 or more, the method returns how
+               many two digit numbers it had to add together to reach its
+               total.
+            4. If `process` reaches the end of the stream BEFORE it has
+               reached a sum of 200, then it will return how many two
+               digit numbers it found before reaching the end of the
+               stream.
+            5. The method will add AT MOST 10 of these two digit numbers
+               together: if it reaches the 10th two digit number and the
+               sum has not yet reached 200, then the method will stop and
+               return 10.
 
+    For example, given a stream yielding "234761640930110349378289194", the
+    process method will:
 
+            1. Read two digits at a time from the stream: "23", "47", "61", etc.
+            2. Convert these digits into a number: 23, 47, 61, etc., and  make a
+               running total of these numbers: 23 + 47 equals 70. 70 + 61 equals
+               131, etc.
+            3. For this particular stream, the running total will exceed 200 after
+               5 such additions: the `process` method should return 5.
+
+    You can see the `tests.py` file for more examples of expected outcomes.
+    
+    """

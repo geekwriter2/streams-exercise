@@ -6,7 +6,7 @@ unittest library. This can be used to demonstrate in-class that unit testing
 is a simple concept which benefits from the use of a library, but does not
 require it.
 
-Run with `python tests.py`. The return code will be the number of test failures.
+Run with `python tests.py`. The return code will be the number of test FAILURES.
 """
 
 import io
@@ -14,69 +14,67 @@ import io
 from stream_exercise import StreamProcessor
 
 
-failures = 0
+FAILURES = 0
 
 
-value = "234761640930110349378289194"
-expected = 5
-my_stream_processor = StreamProcessor(io.StringIO(value))
-result = my_stream_processor.process()
+VALUE = "234761640930110349378289194"
+EXPECTED = 5
+my_stream_processor = StreamProcessor(io.StringIO(VALUE))
+RESULT = my_stream_processor.process()
 
-success = result == expected
-failures += (not success)
-message = "Testing \"{}\", expected {} got {}. ".format(value, expected, result)
-message += "SUCCESS" if success else "FAILURE"
-print(message)
-
-
-value = "03050403020309060707070708"
-expected = 10
-my_stream_processor = StreamProcessor(io.StringIO(value))
-result = my_stream_processor.process()
-
-success = result == expected
-failures += (not success)
-message = "Testing \"{}\", expected {} got {}. ".format(value, expected, result)
-message += "SUCCESS" if success else "FAILURE"
-print(message)
+success = RESULT == EXPECTED
+FAILURES += (not success)
+MESSAGE = "Testing \"{}\", EXPECTED {} got {}. ".format(VALUE, EXPECTED, RESULT)
+MESSAGE += "SUCCESS" if success else "FAILURE"
+print(MESSAGE)
 
 
-value = "3"
-expected = 0
-my_stream_processor = StreamProcessor(io.StringIO(value))
-result = my_stream_processor.process()
+VALUE = "03050403020309060707070708"
+EXPECTED = 10
+my_stream_processor = StreamProcessor(io.StringIO(VALUE))
+RESULT = my_stream_processor.process()
 
-success = result == expected
-failures += (not success)
-message = "Testing \"{}\", expected {} got {}. ".format(value, expected, result)
-message += "SUCCESS" if success else "FAILURE"
-print(message)
-
-
-value = "2347"
-expected = 2
-my_stream_processor = StreamProcessor(io.StringIO(value))
-result = my_stream_processor.process()
-
-success = result == expected
-failures += (not success)
-message = "Testing \"{}\", expected {} got {}. ".format(value, expected, result)
-message += "SUCCESS" if success else "FAILURE"
-print(message)
+success = RESULT == EXPECTED
+FAILURES += (not success)
+MESSAGE = "Testing \"{}\", EXPECTED {} got {}. ".format(VALUE, EXPECTED, RESULT)
+MESSAGE += "SUCCESS" if success else "FAILURE"
+print(MESSAGE)
 
 
-value = "23478"
-expected = 2
-my_stream_processor = StreamProcessor(io.StringIO(value))
-result = my_stream_processor.process()
+VALUE = "3"
+EXPECTED = 0
+my_stream_processor = StreamProcessor(io.StringIO(VALUE))
+RESULT = my_stream_processor.process()
 
-success = result == expected
-failures += (not success)
-message = "Testing \"{}\", expected {} got {}. ".format(value, expected, result)
-message += "SUCCESS" if success else "FAILURE"
-print(message)
+success = RESULT == EXPECTED
+FAILURES += (not success)
+MESSAGE = "Testing \"{}\", EXPECTED {} got {}. ".format(VALUE, EXPECTED, RESULT)
+MESSAGE += "SUCCESS" if success else "FAILURE"
+print(MESSAGE)
 
 
+VALUE = "2347"
+EXPECTED = 2
+my_stream_processor = StreamProcessor(io.StringIO(VALUE))
+RESULT = my_stream_processor.process()
 
-print("\n\nTest failures: {} ".format(failures))
-exit(failures)
+success = RESULT == EXPECTED
+FAILURES += (not success)
+MESSAGE = "Testing \"{}\", EXPECTED {} got {}. ".format(VALUE, EXPECTED, RESULT)
+MESSAGE += "SUCCESS" if success else "FAILURE"
+print(MESSAGE)
+
+
+VALUE = "23478"
+EXPECTED = 2
+my_stream_processor = StreamProcessor(io.StringIO(VALUE))
+RESULT = my_stream_processor.process()
+
+success = RESULT == EXPECTED
+FAILURES += (not success)
+MESSAGE = "Testing \"{}\", EXPECTED {} got {}. ".format(VALUE, EXPECTED, RESULT)
+MESSAGE += "SUCCESS" if success else "FAILURE"
+print(MESSAGE)
+
+print("\n\nTest FAILURES: {} ".format(FAILURES))
+exit(FAILURES)
